@@ -3,7 +3,7 @@ import { withRouter } from "react-router";
 import firebase from "../config/fbConfig";
 import "./BusinessLogin.css";
 
-function BusinessLogin({ toggleBusiness }) {
+function BusinessLogin({ toggleBusiness, toggleBusinessReg }) {
   const [details, setDetails] = useState({
     email: "",
     password: "",
@@ -65,7 +65,7 @@ function BusinessLogin({ toggleBusiness }) {
           <button className="btn yellow darken-1 z-depth-0">Sign In</button>
           <div className="reset-links">
             <p onClick={toggleBusiness}>Not a Business?</p>
-            <p >Register Business</p>
+            <p onClick={toggleBusinessReg}>Register Business</p>
           </div>
         </div>
       </form>

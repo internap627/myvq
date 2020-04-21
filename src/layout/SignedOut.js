@@ -3,11 +3,17 @@ import { withRouter } from "react-router";
 import "./SignedOut.css";
 import Login from "../auth/Login";
 import Register from "../auth/Register";
-import BusinessLogin from '../auth/BusinessLogin';
+import BusinessLogin from "../auth/BusinessLogin";
+import BusinessRegister from "../auth/BusniessRegister";
 
 function SignedOut() {
   const [toggle, setToggle] = useState(true);
+  const [businessReg, setBusinessReg] = useState(false);
   const [businessToggle, setBusinessToggle] = useState(false);
+
+  const toggleBusinessReg = () => {
+    setBusinessReg(!businessReg);
+  };
 
   const toggleBusiness = () => {
     setBusinessToggle(!businessToggle);
@@ -21,9 +27,12 @@ function SignedOut() {
     <Login toggleUserForm={toggleUserForm} toggleBusiness={toggleBusiness} />
   ) : !toggle && !businessToggle ? (
     <Register toggleUserForm={toggleUserForm} />
-  ) :  (
-    <BusinessLogin toggleBusiness={toggleBusiness} />
-  ) 
+  ) : businessToggle && !businessReg ? (
+    <BusinessLogin
+      toggleBusiness={toggleBusiness}
+      toggleBusinessReg={toggleBusinessReg}
+    /> 
+  ) : <BusinessRegister />
 }
 
 export default withRouter(SignedOut);
