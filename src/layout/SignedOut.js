@@ -32,7 +32,7 @@ function SignedOut() {
       toggleBusiness={toggleBusiness}
       toggleBusinessReg={toggleBusinessReg}
     /> 
-  ) : <BusinessRegister />
+  ) : <BusinessRegister toggleUserForm={toggleBusiness} />
 }
 
 export default withRouter(SignedOut);
