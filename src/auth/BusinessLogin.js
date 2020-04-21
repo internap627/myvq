@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from "react";
 import { withRouter } from "react-router";
 import firebase from "../config/fbConfig";
-import "./Login.css";
+import "./BusinessLogin.css";
 
-function Login({ toggleUserForm, toggleBusiness }) {
+function BusinessLogin({ toggleBusiness }) {
   const [details, setDetails] = useState({
     email: "",
     password: "",
@@ -38,7 +38,7 @@ function Login({ toggleUserForm, toggleBusiness }) {
   return (
     <div className="login-container">
       <nav className="nav-wrapper white">
-      <h5 className="center">Welcome to VQ</h5>
+      <h5 className="center">Welcome to VQ Corporate</h5>
       </nav>
       <div className="hero"></div>
 
@@ -64,8 +64,8 @@ function Login({ toggleUserForm, toggleBusiness }) {
         <div className="form-btn input-field">
           <button className="btn yellow darken-1 z-depth-0">Sign In</button>
           <div className="reset-links">
-            <p onClick={toggleBusiness}>Business?</p>
-            <p onClick={toggleUserForm}>Register User</p>
+            <p onClick={toggleBusiness}>Not a Business?</p>
+            <p >Register Business</p>
           </div>
         </div>
       </form>
@@ -81,4 +81,4 @@ function Login({ toggleUserForm, toggleBusiness }) {
   );
 }
 
-export default withRouter(Login);
+export default withRouter(BusinessLogin);
