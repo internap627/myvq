@@ -1,9 +1,8 @@
 import React, { useState, useEffect } from "react";
 import { withRouter } from "react-router";
-import firebase from "../config/fbConfig";
-import "./Register.css";
+import "./Step1.css";
 
-function Register({ toggleForm }) {
+function Step1({ toggleForm, toggleStep, handleDetails }) {
   const [details, setDetails] = useState({
     email: "",
     password: "",
@@ -19,21 +18,12 @@ function Register({ toggleForm }) {
       ...details,
       ...val,
     });
-    console.log(details);
   };
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    firebase
-      .auth()
-      .createUserWithEmailAndPassword(details.email, details.password)
-      .then((u) => {
-        console.log(u.user.email);
-        // this.props.history.push("/");
-      })
-      .catch((err) => {
-        console.log(err.message);
-      });
+    toggleStep()
+    handleDetails(details)
   };
 
   return (
@@ -90,20 +80,23 @@ function Register({ toggleForm }) {
           If you are not yet ready to proceed, please click on the ”Cancel”
           button
         </p>
-        <div className="form-btn input-field" id='reg-btns'>
+        <div className="form-btn input-field" id="reg-btns">
           <button
             onClick={toggleForm}
             className="btn light-blue darken-4 z-depth-0"
-            id='cancel-btn'
+            id="cancel-btn"
           >
-          
             Cancel
           </button>
-          <button className="btn yellow darken-1 z-depth-0">Continue</button>
+          <button
+            className="btn yellow darken-1 z-depth-0"
+          >
+            Continue
+          </button>
         </div>
       </form>
     </div>
   );
 }
 
-export default withRouter(Register);
+export default withRouter(Step1);
