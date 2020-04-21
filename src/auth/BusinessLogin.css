@@ -1,7 +1,7 @@
-.login-form {
+.business-login-form {
     display: flex;
     flex-direction: column;
-    background-color: #fffeef;
+    background-color: #c5c4b2;
 }
 
 .form-btn {
@@ -60,18 +60,18 @@ textarea.materialize-textarea:focus:not([readonly]){
     width: 35%;
 }
 
-.login-container {
+.business-login-container {
     display: flex;
     flex-direction: column;
     align-items: center;
-    background-color: #fffeef;
+    background-color: #c5c4b2;
     height: 100vh;
 }
 
-.hero {
+.business-hero {
     width: 100vw;
     height: 30vh;
-    background: url('../images/shoppingsplash.jpg');
+    background: url('../images/business-unsplash.jpg');
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;

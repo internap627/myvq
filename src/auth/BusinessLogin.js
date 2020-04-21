@@ -36,13 +36,13 @@ function BusinessLogin({ toggleBusiness }) {
   };
 
   return (
-    <div className="login-container">
+    <div className="business-login-container">
       <nav className="nav-wrapper white">
       <h5 className="center">Welcome to VQ Corporate</h5>
       </nav>
-      <div className="hero"></div>
+      <div className="business-hero"></div>
 
-      <form className="login-form" onSubmit={handleSubmit}>
+      <form className="business-login-form" onSubmit={handleSubmit}>
         <div className="input-field">
           <label htmlFor="email">Email</label>
           <input
