@@ -1,0 +1,89 @@
+.heading {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 80vw;
+    height: 25vh;
+  }
+  
+  .heading h4 {
+    font-size: 1rem;
+  }
+  
+  .heading h5 {
+    font-size: 1rem;
+  }
+  
+  .dots {
+    display: flex;
+    justify-content: center;
+    width: 50%;
+  }
+
+  .dot-dark {
+    width: 8px;
+    height: 8px;
+    background-color: #0062a0;
+    border-radius: 50%;
+    margin: 0 1rem;
+  }
+  
+  .dot {
+    width: 8px;
+    height: 8px;
+    background-color: #61a8dc;
+    border-radius: 50%;
+    margin: 0 1rem;
+  }
+  
+  .form {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .form-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  #reg-btns {
+      flex-direction: row;
+      justify-content: space-around;
+  }
+  
+  .form-btn button {
+    width: 25vw;
+    color: #0267a2;
+  
+  }
+  
+  .form-btn #cancel-btn {
+      color: #E3C966;
+  }
+  
+  
+  
+  
+  .form p {
+      font-size: 0.8rem;
+      width: 60vw;
+      align-self: center;
+  }
+  
+  input[type="text"]:not(.browser-default):focus:not([readonly]),
+  input[type="email"]:not(.browser-default):focus:not([readonly]),
+  input[type="password"]:not(.browser-default):focus:not([readonly]),
+  textarea.materialize-textarea:focus:not([readonly]) {
+    border-color: #1589ca;
+    box-shadow: none;
+  }
+  
+  .input-field input:not(:focus) {
+    border-bottom: 0.5px solid grey !important;
+  }
+  
+  .input-field label {
+      color: #00ACCD;
+    }

@@ -4,7 +4,7 @@ import "./SignedOut.css";
 import Login from "../auth/Login";
 import Register from "../auth/Register";
 import BusinessLogin from "../auth/BusinessLogin";
-import BusinessRegister from "../auth/BusniessRegister";
+import BusinessRegister from "../auth/BusinessRegister";
 
 function SignedOut() {
   const [toggle, setToggle] = useState(true);

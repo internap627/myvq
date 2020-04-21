@@ -1,0 +1,15 @@
+select {
+  background-color: none;
+  width: 100%;
+  padding: 0;
+  border: none;
+  border-radius: none;
+  height: 2rem;
+  display: block;
+  color: #00accd;
+  margin-left: -5px;
+}
+
+select:focus {
+  outline: none;
+}
