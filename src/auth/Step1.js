@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import { withRouter } from "react-router";
 import "./Step1.css";
 
-function Step1({ toggleForm, toggleStep, handleDetails }) {
+function Step1({ toggleUserForm, toggleStep, handleDetails }) {
   const [details, setDetails] = useState({
     email: "",
     password: "",
@@ -82,7 +82,7 @@ function Step1({ toggleForm, toggleStep, handleDetails }) {
         </p>
         <div className="form-btn input-field" id="reg-btns">
           <button
-            onClick={toggleForm}
+            onClick={toggleUserForm}
             className="btn light-blue darken-4 z-depth-0"
             id="cancel-btn"
           >

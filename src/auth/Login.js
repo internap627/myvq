@@ -3,7 +3,7 @@ import { withRouter } from "react-router";
 import firebase from "../config/fbConfig";
 import "./Login.css";
 
-function Login({ toggleForm }) {
+function Login({ toggleUserForm }) {
   const [details, setDetails] = useState({
     email: "",
     password: "",
@@ -64,8 +64,8 @@ function Login({ toggleForm }) {
         <div className="form-btn input-field">
           <button className="btn yellow darken-1 z-depth-0">Sign In</button>
           <div className="reset-links">
-            <p>Forgot ID/password?</p>
-            <p onClick={toggleForm}>Register</p>
+            <p>Register Business</p>
+            <p onClick={toggleUserForm}>Register User</p>
           </div>
         </div>
       </form>

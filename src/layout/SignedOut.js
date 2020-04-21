@@ -7,14 +7,14 @@ import Register from "../auth/Register";
 function SignedOut() {
   const [toggle, setToggle] = useState(true);
 
-  const toggleForm = () => {
+  const toggleUserForm = () => {
     setToggle(!toggle);
   };
 
   return toggle ? (
-    <Login toggleForm={toggleForm} />
+    <Login toggleUserForm={toggleUserForm} />
   ) : (
-    <Register toggleForm={toggleForm} />
+    <Register toggleUserForm={toggleUserForm} />
   );
 }
 

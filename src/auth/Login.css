@@ -25,6 +25,7 @@
 
 .reset-links p {
     color: #1589ca;
+    text-decoration: underline;
 }
 
 input[type=text]:not(.browser-default):focus:not([readonly]),

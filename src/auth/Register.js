@@ -3,7 +3,7 @@ import { withRouter } from "react-router";
 import Step1 from "./Step1";
 import Step2 from "./Step2";
 
-function Register({ toggleForm }) {
+function Register({ toggleUserForm }) {
   const [toggle, setToggle] = useState(true);
   const [userDetails, setUserDetails] = useState(null);
 
@@ -17,10 +17,10 @@ function Register({ toggleForm }) {
 
   return (
     toggle ? <Step1
-      toggleForm={toggleForm}
+      toggleUserForm={toggleUserForm}
       toggleStep={toggleStep}
       handleDetails={handleDetails}
-    /> : <Step2 details={userDetails} toggleForm={toggleForm} />
+    /> : <Step2 details={userDetails} toggleForm={toggleUserForm} />
   );
 }
 
