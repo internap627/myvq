@@ -13,27 +13,8 @@ const linkStyle = {
 };
 
 function App() {
-  useEffect(() => {
-    authListener();
-  });
 
-  const [user, setUser] = useState( null )
   const [splashActive, setSplashActive] = useState( true )
-
-
-  const authListener = () => {
-    firebase.auth().onAuthStateChanged((user) => {
-      if (user) {
-        setUser( user );
-      } else {
-        setUser( null );
-      }
-    });
-  };
-
-  const storeUser = (user) => {
-    setUser( user )
-  }
 
   const toggleSplash = () => {
     setSplashActive(
