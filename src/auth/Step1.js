@@ -6,6 +6,7 @@ function Step1({ toggleUserForm, toggleStep, handleDetails }) {
   const [details, setDetails] = useState({
     email: "",
     password: "",
+    confirmPassword: "",
     firstName: "",
     lastName: "",
     user: {},
@@ -22,8 +23,12 @@ function Step1({ toggleUserForm, toggleStep, handleDetails }) {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    toggleStep()
-    handleDetails(details)
+    if (details.password !== details.confirmPassword) {
+      alert("The passwords don't match");
+      return false; // The form won't submit
+    }
+    toggleStep();
+    handleDetails(details);
   };
 
   return (
@@ -74,6 +79,15 @@ function Step1({ toggleUserForm, toggleStep, handleDetails }) {
             onChange={handleChange}
           />
         </div>
+        <div className="input-field">
+          <label htmlFor="password">Confirm Password</label>
+          <input
+            type="password"
+            id="confirmPassword"
+            value={details.confirmPassword}
+            onChange={handleChange}
+          />
+        </div>
         <p>
           Please fill out the above details and confirm by clicking on
           “Continue” to proceed. <br />
@@ -88,11 +102,7 @@ function Step1({ toggleUserForm, toggleStep, handleDetails }) {
           >
             Cancel
           </button>
-          <button
-            className="btn yellow darken-1 z-depth-0"
-          >
-            Continue
-          </button>
+          <button className="btn yellow darken-1 z-depth-0">Continue</button>
         </div>
       </form>
     </div>

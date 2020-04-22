@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 import firebase from "./config/fbConfig";
 import "./App.css";
-import Nav from "./layout/Nav"
+import Nav from "./layout/Nav";
 const vqLogo = require("./images/VQ_Icon_white_page1.png");
 
 const linkStyle = {
@@ -13,50 +13,47 @@ const linkStyle = {
 };
 
 function App() {
-
-  const [splashActive, setSplashActive] = useState( true )
+  const [splashActive, setSplashActive] = useState(true);
 
   const toggleSplash = () => {
-    setSplashActive(
-      !splashActive
-    )
-  }
+    setSplashActive(!splashActive);
+  };
 
   return (
     <Router>
       <div className="page">
         <div className="app">
-          {splashActive ? <div className="splash">
-            <img alt="logo" src={vqLogo} />
-            <div className="text">
-              <h4>Welcome to Virtual Que!</h4>
+          {splashActive ? (
+            <div className="splash">
+              <img alt="logo" src={vqLogo} />
+              <div className="text">
+                <h4>Welcome to VQ!</h4>
 
-              <p>
-                Register your business{" "}
-                <Link style={linkStyle} to="/users" onClick={toggleSplash}>
-                  here
-                </Link>{" "}
-                to access our easy to use Social Distancing Virtual Line Up
-                tool.
-              </p>
+                <p>
+                  VQ, is your “Virtual Queue” assistant. It allows you to
+                  reserve your place in line from your mobile device.
+                </p>
 
-              <p>
-                Once your business is registered, our growing user base will be
-                able to select you from our expanding vendor’s list, and easily
-                hop in line out the front of your business, online.
-              </p>
+                <p>
+                  VQ members can select from a list of their preferred
+                  Supermarkets, Banks, Barbers, Local Businesses or Vendors, to
+                  secure their spot in line from anywhere in Barbados.
+                </p>
 
-              <p>
-                Customers can then wait in line from the comfort of their home,
-                car, or whilst doing other activities. To get started simply
-                click{" "}
-                <Link style={linkStyle} to="/users" onClick={toggleSplash}>
-                  here
-                </Link>
-                .
-              </p>
+                <p>
+                  Become a member or register your business{" "}
+                  <Link style={linkStyle} to="/users" onClick={toggleSplash}>
+                    here
+                  </Link>{". "}
+                  Once registered, members can select a business in order to
+                  reserve their place in line without having to physically be
+                  there.
+                </p>
+              </div>
             </div>
-          </div> : <Nav />}
+          ) : (
+            <Nav />
+          )}
         </div>
 
         {/* A <Switch> looks through its children <Route>s and

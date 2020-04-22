@@ -6,6 +6,7 @@ function BusinessStep1({ toggleUserForm, toggleStep, handleDetails }) {
   const [details, setDetails] = useState({
     email: "",
     password: "",
+    confirmPassword: "",
     firstName: "",
     lastName: "",
     category: "",
@@ -24,9 +25,12 @@ function BusinessStep1({ toggleUserForm, toggleStep, handleDetails }) {
 
   const handleSubmit = (e) => {
     e.preventDefault();
+    if (details.password !== details.confirmPassword) {
+      alert("The passwords don't match");
+      return false; // The form won't submit
+    }
     toggleStep();
     handleDetails(details);
-    console.log(details)
   };
 
   return (
@@ -60,11 +64,7 @@ function BusinessStep1({ toggleUserForm, toggleStep, handleDetails }) {
           />
         </div>
         <div className="input-field" id="select-input">
-          <select
-            onChange={handleChange}
-            defaultValue="label"
-            id="category"
-          >
+          <select onChange={handleChange} defaultValue="label" id="category">
             <option value="label" disabled>
               Business Category
             </option>
@@ -97,6 +97,15 @@ function BusinessStep1({ toggleUserForm, toggleStep, handleDetails }) {
             type="password"
             id="password"
             value={details.password}
+            onChange={handleChange}
+          />
+        </div>
+        <div className="input-field">
+          <label htmlFor="password">Confirm Password</label>
+          <input
+            type="password"
+            id="confirmPassword"
+            value={details.confirmPassword}
             onChange={handleChange}
           />
         </div>
