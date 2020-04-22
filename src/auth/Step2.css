@@ -1,3 +1,7 @@
+.container {
+  width: 100%;
+  margin: 0 !important;
+}
 .heading {
     display: flex;
     flex-direction: column;
@@ -5,6 +9,7 @@
     align-items: center;
     width: 80vw;
     height: 25vh;
+    margin-left: 2.5rem;
   }
   
   .heading h4 {
@@ -51,6 +56,10 @@
   #reg-btns {
       flex-direction: row;
       justify-content: space-around;
+      position: sticky;
+      bottom: 0;
+      background-color: #FFFDED;
+      height: 5rem;
   }
   
   .form-btn button {
@@ -87,3 +96,9 @@
   .input-field label {
       color: #00ACCD;
     }
+
+  .input-field {
+    margin-left: 1rem;
+    margin-right: 1rem;
+
+  }

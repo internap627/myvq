@@ -95,7 +95,7 @@ function Step1({ toggleUserForm, toggleStep, handleDetails }) {
           If you are not yet ready to proceed, please click on the ”Cancel”
           button
         </p>
-        <div className="form-btn input-field" id="reg-btns">
+        <div className="form-btn" id="reg-btns">
           <button
             onClick={toggleUserForm}
             className="btn light-blue darken-4 z-depth-0"
