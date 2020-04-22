@@ -66,7 +66,7 @@ function Step2({ toggleForm, toggleStep, details }) {
           to complete your profile sign up. If your information is incorrect,
           please click on the ”Cancel” button to re-enter your information
         </p>
-        <div className="form-btn input-field" id="reg-btns">
+        <div className="form-btn" id="reg-btns">
           <button
             onClick={toggleForm}
             className="btn light-blue darken-4 z-depth-0"

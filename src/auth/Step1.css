@@ -37,6 +37,8 @@
   .form {
     display: flex;
     flex-direction: column;
+    justify-content: space-between;
+    height: 75vh;
   }
   
   .form-btn {
@@ -48,6 +50,7 @@
   #reg-btns {
       flex-direction: row;
       justify-content: space-around;
+      padding: 1rem 0;
   }
   
   .form-btn button {

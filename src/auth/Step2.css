@@ -59,7 +59,7 @@
       position: sticky;
       bottom: 0;
       background-color: #FFFDED;
-      height: 5rem;
+      padding: 1rem 0;
   }
   
   .form-btn button {
