@@ -50,7 +50,7 @@
   #reg-btns {
       flex-direction: row;
       justify-content: space-around;
-      padding: 1rem 0;
+      padding: 1.5rem 0;
   }
   
   .form-btn button {

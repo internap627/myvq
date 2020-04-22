@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { withRouter } from "react-router";
 import firebase from "../config/fbConfig";
+import Reset from "./Reset";
 import "./Login.css";
 
 function Login({ toggleUserForm, toggleBusiness }) {
@@ -10,6 +11,12 @@ function Login({ toggleUserForm, toggleBusiness }) {
     user: {},
   });
 
+  const [toggleReset, setReset] = useState(false);
+
+  const handleReset = () => {
+    setReset(!toggleReset)
+  }
+
   const handleChange = (e) => {
     let val = { [e.target.id]: e.target.value };
 
@@ -17,7 +24,6 @@ function Login({ toggleUserForm, toggleBusiness }) {
       ...details,
       ...val,
     });
-    console.log(details);
   };
 
   const handleSubmit = (e) => {
@@ -38,11 +44,11 @@ function Login({ toggleUserForm, toggleBusiness }) {
   return (
     <div className="login-container">
       <nav className="nav-wrapper white">
-      <h5 className="center">Welcome to VQ</h5>
+        <h5 className="center">Welcome to VQ</h5>
       </nav>
       <div className="hero"></div>
 
-      <form className="login-form" onSubmit={handleSubmit}>
+      {!toggleReset ? <form className="login-form" onSubmit={handleSubmit}>
         <div className="input-field">
           <label htmlFor="email">Email</label>
           <input
@@ -64,11 +70,12 @@ function Login({ toggleUserForm, toggleBusiness }) {
         <div className="form-btn input-field">
           <button className="btn yellow darken-1 z-depth-0">Sign In</button>
           <div className="reset-links">
-            <p onClick={toggleBusiness}>Business?</p>
+            <p onClick={handleReset}>Forgot Password</p>
+            <p onClick={toggleBusiness}>VQ Business</p>
             <p onClick={toggleUserForm}>Register User</p>
           </div>
         </div>
-      </form>
+      </form> : <Reset handleReset={handleReset} />}
       <div className="bubbles">
         <div>
           Vendors can register for thier customers convience and safety.
