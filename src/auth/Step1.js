@@ -88,6 +88,7 @@ function Step1({ toggleUserForm, toggleStep, handleDetails }) {
             onChange={handleChange}
           />
         </div>
+
         <p>
           Please fill out the above details and confirm by clicking on
           “Continue” to proceed. <br />
