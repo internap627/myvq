@@ -84,8 +84,10 @@ textarea.materialize-textarea:focus:not([readonly]) {
   box-shadow: none;
 }
 
-.input-field input:not(:focus) {
-  border-bottom: 0.5px solid grey !important;
+.input-field input:not(:focus),
+.input-field select:not(:focus)
+ {
+  border-bottom: 1px solid grey !important;
 }
 
 .input-field label {
@@ -94,6 +96,12 @@ textarea.materialize-textarea:focus:not([readonly]) {
 
 .input-field {
   margin: 0 1rem;
+}
+
+.input-field select:focus {
+  border-color: #1589ca;
+  border-bottom: 1px solid #1589ca !important;
+  box-shadow: none;
 }
 
 select {
@@ -105,7 +113,8 @@ select {
   height: 2rem;
   display: block;
   color: #00accd;
-  margin-left: -5px;
+  margin: 0.5rem 1rem 0.5rem -5px;
+
 }
 
 select:focus {

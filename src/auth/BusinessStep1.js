@@ -67,9 +67,26 @@ function BusinessStep1({ toggleUserForm, toggleStep, handleDetails }) {
             <option value="label" disabled>
               Business Category
             </option>
-            <option value="Supermarket">SuperMarket</option>
-            <option value="Hardware">Hardware</option>
+            <option value="Supermarket">Supermarket</option>
+            <option value="Convenience Store">Convenience Store</option>
+            <option value="Local Village Shop">Local Village Shop</option>
             <option value="Pharmacy">Pharmacy</option>
+            <option value="Bank">Bank</option>
+            <option value="Coconut Vendor">Coconut Vendor</option>
+            <option value="Fruit &#38; Veg Vendor">
+              Fruit &#38; Veg Vendor
+            </option>
+            <option value="Fish &#38; Meat Market">
+              Fish &#38; Meat Market
+            </option>
+            <option value="Hardware Store">Hardware Store</option>
+            <option value="Pharmacy">Pharmacy</option>
+            <option value="Doctor Office">Doctor Office</option>
+            <option value="Dentist Office">Dentist Office</option>
+            <option value="Government Office">Government Office</option>
+            <option value="Night Club &#38; Seasonal Fetes">
+              Night Club &#38; Seasonal Fetes
+            </option>
           </select>
         </div>
         <div className="input-field">
