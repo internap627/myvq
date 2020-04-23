@@ -33,7 +33,7 @@ function Step1({ toggleUserForm, toggleStep, handleDetails }) {
 
   return (
     <div className="container">
-      <div className="heading">
+      <div className="header">
         <h4>Let's get you started</h4>
         <div className="dots">
           <div className="dot"></div>

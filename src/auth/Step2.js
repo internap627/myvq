@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { withRouter } from "react-router";
 import firebase from "../config/fbConfig";
-import "./Step2.css";
 
 function Step2({ toggleForm, toggleStep, details }) {
 
@@ -24,7 +23,7 @@ function Step2({ toggleForm, toggleStep, details }) {
 
   return (
     <div className="container">
-      <div className="heading">
+      <div className="header">
         <h4>Congratulations</h4>
         <div className="dots">
           <div className="dot-dark"></div>
