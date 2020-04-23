@@ -81,8 +81,8 @@ function BusinessStep1({ toggleUserForm, toggleStep, handleDetails }) {
             </option>
             <option value="Hardware Store">Hardware Store</option>
             <option value="Pharmacy">Pharmacy</option>
-            <option value="Doctor Office">Doctor Office</option>
-            <option value="Dentist Office">Dentist Office</option>
+            <option value="Doctor Office">Doctor's Office</option>
+            <option value="Dentist Office">Dentist's Office</option>
             <option value="Government Office">Government Office</option>
             <option value="Night Club &#38; Seasonal Fetes">
               Night Club &#38; Seasonal Fetes

@@ -28,18 +28,6 @@
     text-decoration: underline;
 }
 
-input[type=text]:not(.browser-default):focus:not([readonly]),
-input[type=email]:not(.browser-default):focus:not([readonly]),
-input[type=password]:not(.browser-default):focus:not([readonly]),
-textarea.materialize-textarea:focus:not([readonly]){
-  border-color: #1589ca;
-  box-shadow: none;
-}
-
-.input-field input:not(:focus) {
-    border-bottom: 0.5px solid grey !important;
-  }
-
   .bubbles {
     width: 100vw;
     height: 20vh;

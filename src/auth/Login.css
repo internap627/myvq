@@ -36,10 +36,6 @@ textarea.materialize-textarea:focus:not([readonly]) {
   box-shadow: none;
 }
 
-.input-field input:not(:focus) {
-  border-bottom: 0.5px solid grey !important;
-}
-
 .bubbles {
   width: 100vw;
   height: 20vh;
