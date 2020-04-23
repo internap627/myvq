@@ -20,6 +20,9 @@ function SignedOut() {
   };
 
   const toggleUserForm = () => {
+     businessReg ? toggleBusinessReg()
+    : businessToggle && !businessReg ? toggleBusiness() :
+
     setToggle(!toggle);
   };
 
@@ -32,7 +35,7 @@ function SignedOut() {
       toggleBusiness={toggleBusiness}
       toggleBusinessReg={toggleBusinessReg}
     /> 
-  ) : <BusinessRegister toggleUserForm={toggleBusiness} />
+  ) : businessReg ? <BusinessRegister toggleUserForm={toggleUserForm} /> : ""
 }
 
 export default withRouter(SignedOut);
