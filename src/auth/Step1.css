@@ -8,7 +8,7 @@
   justify-content: center;
   align-items: center;
   width: 100vw;
-  height: 25vh;
+  height: 20vh;
   position: sticky;
   top: 0;
   background-color: white;
@@ -41,6 +41,14 @@
   margin: 0 1rem;
 }
 
+.form-label h5 {
+  color: #0066A0;
+  font-size: 1rem;
+  font-weight: bold;
+  margin: 0 1rem;
+  height: 2rem;
+}
+
 .form {
   display: flex;
   flex-direction: column;
@@ -52,6 +60,8 @@
   display: flex;
   align-items: center;
   justify-content: center;
+  position: sticky;
+  bottom: 0;
 }
 
 #reg-btns {
@@ -70,8 +80,15 @@
   color: #e3c966;
 }
 
+.text-para {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 2rem;
+}
+
 .form p {
-  font-size: 0.8rem;
+  font-size: 0.9rem;
   width: 60vw;
   align-self: center;
 }
@@ -87,7 +104,7 @@ textarea.materialize-textarea:focus:not([readonly]) {
 .input-field input:not(:focus),
 .input-field select:not(:focus)
  {
-  border-bottom: 1px solid grey;
+  border-bottom: 1px solid #707070;
 }
 
 .input-field label {
@@ -95,7 +112,7 @@ textarea.materialize-textarea:focus:not([readonly]) {
 }
 
 .input-field {
-  margin: 0 1rem;
+  margin: 1rem;
 }
 
 .input-field select:focus {

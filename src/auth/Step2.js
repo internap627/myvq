@@ -32,6 +32,9 @@ function Step2({ toggleForm, toggleStep, details }) {
         </div>
         <h5>Welcome to the VQ community!</h5>
       </div>
+      <div className="form-label">
+        <h5>User / Customer Confirmation</h5>
+      </div>
       <form className="form" onSubmit={handleSubmit}>
         <div className="input-field">
           {/* <label htmlFor="firstName">First Name</label> */}

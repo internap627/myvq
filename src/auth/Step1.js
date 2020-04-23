@@ -42,6 +42,9 @@ function Step1({ toggleUserForm, toggleStep, handleDetails }) {
         </div>
         <h5>Please provide the following info to join VQ.</h5>
       </div>
+      <div className="form-label">
+        <h5>User / Customer Sign Up</h5>
+      </div>
       <form className="form" onSubmit={handleSubmit}>
         <div className="input-field">
           <label htmlFor="firstName">First Name</label>
@@ -88,13 +91,16 @@ function Step1({ toggleUserForm, toggleStep, handleDetails }) {
             onChange={handleChange}
           />
         </div>
-
+        <div className="text-para">
         <p>
           Please fill out the above details and confirm by clicking on
-          “Continue” to proceed. <br />
-          If you are not yet ready to proceed, please click on the ”Cancel”
-          button
+          “Continue” to proceed.
         </p>
+        <p>
+          If you are not yet ready to proceed, please click on the ”Cancel”
+          button.
+        </p>
+        </div>
         <div className="form-btn" id="reg-btns">
           <button
             onClick={toggleUserForm}

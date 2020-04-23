@@ -3,6 +3,7 @@ import { withRouter } from "react-router";
 import firebase from "../config/fbConfig";
 import Reset from "./Reset";
 import "./Login.css";
+import downArrow from "../images/taskmaster_ico.png"
 
 function Login({ toggleUserForm, toggleBusiness }) {
   const [details, setDetails] = useState({
@@ -44,9 +45,14 @@ function Login({ toggleUserForm, toggleBusiness }) {
   return (
     <div className="login-container">
       <nav className="nav-wrapper white">
-        <h5 className="center">Welcome to VQ</h5>
+        <h5 className="center">Welcome to VQ your Virtual in line assistant!</h5>
       </nav>
       <div className="hero"></div>
+
+      <div className="task-master">
+          <h3>Task Master</h3>
+          <img src={downArrow} alt="down arrow" />
+      </div>
 
       {!toggleReset ? <form className="login-form" onSubmit={handleSubmit}>
         <div className="input-field">
@@ -71,8 +77,8 @@ function Login({ toggleUserForm, toggleBusiness }) {
           <button className="btn yellow darken-1 z-depth-0">Sign In</button>
           <div className="reset-links">
             <p onClick={handleReset}>Forgot Password</p>
-            <p onClick={toggleBusiness}>VQ Business</p>
             <p onClick={toggleUserForm}>Register User</p>
+            <p onClick={toggleBusiness}>VQ Business</p>
           </div>
         </div>
       </form> : <Reset handleReset={handleReset} />}
