@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { withRouter } from "react-router";
 import firebase from "../config/fbConfig";
+import QRshow from "./QRshow";
 
 function BusinessStep2({ toggleForm, toggleStep, details }) {
   const userDetails = details && details;
@@ -76,6 +77,7 @@ function BusinessStep2({ toggleForm, toggleStep, details }) {
             Name and Location
           </span>
         </div>
+        <div className="qrshow"><QRshow data={nameLocation}/></div>
         <p>
           Please ensure the above details are correct by clicking on “CONFIRM”
           to complete your profile sign up. If your information is incorrect,

@@ -137,3 +137,7 @@ select {
 select:focus {
   outline: none;
 }
+
+.qrshow {
+  align-self: center;
+}
