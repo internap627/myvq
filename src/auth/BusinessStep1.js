@@ -10,6 +10,8 @@ function BusinessStep1({ toggleUserForm, toggleStep, handleDetails }) {
     lastName: "",
     category: "",
     businessName: "",
+    street: "",
+    parish: "",
     user: {},
   });
 
@@ -98,6 +100,25 @@ function BusinessStep1({ toggleUserForm, toggleStep, handleDetails }) {
             onChange={handleChange}
           />
         </div>
+        <div className="input-field">
+          <label htmlFor="street">Street</label>
+          <input
+            type="text"
+            id="street"
+            value={details.street}
+            onChange={handleChange}
+          />
+        </div>
+        <div className="input-field">
+          <label htmlFor="parish">Parish</label>
+          <input
+            type="text"
+            id="parish"
+            value={details.parish}
+            onChange={handleChange}
+          />
+        </div>
+       
         <div className="input-field">
           <label htmlFor="email">Email</label>
           <input

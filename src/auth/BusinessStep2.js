@@ -3,9 +3,9 @@ import { withRouter } from "react-router";
 import firebase from "../config/fbConfig";
 
 function BusinessStep2({ toggleForm, toggleStep, details }) {
-
-
   const userDetails = details && details;
+  const userName = `${userDetails.firstName} ${userDetails.lastName}`;
+  const nameLocation = `${userDetails.businessName}, ${userDetails.street}, ${userDetails.parish}`
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -38,27 +38,19 @@ function BusinessStep2({ toggleForm, toggleStep, details }) {
           <input
             type="text"
             id="firstName"
-            value={userDetails.firstName}
+            value={userName && userName}
             readOnly
           />
-        </div>
-        <div className="input-field">
-          {/* <label htmlFor="lastName">Last Name</label> */}
-          <input
-            type="text"
-            id="lastName"
-            value={userDetails.lastName}
-            readOnly
-          />
+          <span className="helper-text" data-error="wrong" data-success="right">
+            Business Owner
+          </span>
         </div>
         <div className="input-field">
           {/* <label htmlFor="email">Email</label> */}
-          <input
-            type="email"
-            id="email"
-            value={userDetails.email}
-            readOnly
-          />
+          <input type="email" id="email" value={userDetails.email} readOnly />
+          <span className="helper-text" data-error="wrong" data-success="right">
+            Email
+          </span>
         </div>
         <div className="input-field">
           {/* <label htmlFor="lastName">Last Name</label> */}
@@ -68,15 +60,21 @@ function BusinessStep2({ toggleForm, toggleStep, details }) {
             value={userDetails.category}
             readOnly
           />
+          <span className="helper-text" data-error="wrong" data-success="right">
+            Category
+          </span>
         </div>
         <div className="input-field">
           {/* <label htmlFor="lastName">Last Name</label> */}
           <input
             type="text"
-            id="businessName"
-            value={userDetails.businessName}
+            id="nameLocation"
+            value={nameLocation && nameLocation}
             readOnly
           />
+          <span className="helper-text" data-error="wrong" data-success="right">
+            Name and Location
+          </span>
         </div>
         <p>
           Please ensure the above details are correct by clicking on “CONFIRM”
@@ -91,11 +89,7 @@ function BusinessStep2({ toggleForm, toggleStep, details }) {
           >
             Cancel
           </button>
-          <button
-            className="btn yellow darken-1 z-depth-0"
-          >
-            Confirm
-          </button>
+          <button className="btn yellow darken-1 z-depth-0">Confirm</button>
         </div>
       </form>
     </div>
