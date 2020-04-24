@@ -6,7 +6,7 @@ import QRshow from "./QRshow";
 function BusinessStep2({ toggleForm, toggleStep, details }) {
   const userDetails = details && details;
   const userName = `${userDetails.firstName} ${userDetails.lastName}`;
-  const nameLocation = `${userDetails.businessName}, ${userDetails.street}, ${userDetails.parish}`
+  const nameLocation = `${userDetails.businessName}, ${userDetails.street}, ${userDetails.parish}`;
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -77,7 +77,16 @@ function BusinessStep2({ toggleForm, toggleStep, details }) {
             Name and Location
           </span>
         </div>
-        <div className="qrshow"><QRshow data={nameLocation}/></div>
+        <div className="qrshow">
+          <div className="qrtext">
+            <h6>Business QR Code</h6>
+            <p>
+              This newly generated QR Code is your company identifier, and is
+              used by your customers when scanned to secure their place in line.{" "}
+            </p>
+          </div>
+          <QRshow data={nameLocation} />
+        </div>
         <p>
           Please ensure the above details are correct by clicking on “CONFIRM”
           to complete your profile sign up. If your information is incorrect,
