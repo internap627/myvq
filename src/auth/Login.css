@@ -3,6 +3,7 @@
   align-items: center;
   justify-content: center;
   height: 6rem;
+  position: sticky !important;
 }
 
 .task-master {
@@ -88,15 +89,15 @@ textarea.materialize-textarea:focus:not([readonly]) {
 
 .hero {
   width: 100vw;
-  height: 30vh;
-  background: url("../images/shoppingsplash.jpg");
+  height: 25vh;
+  background: url("../images/user_login_img.png");
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
 }
 
 .login-container .nav-wrapper h5 {
-  font-size: 1.25rem;
+  font-size: 1.3rem;
   color: black;
   height: 3rem;
   opacity: 0;
@@ -121,7 +122,7 @@ textarea.materialize-textarea:focus:not([readonly]) {
 
 @media screen and (max-width: 370px) {
   .login-container .nav-wrapper h5 {
-    font-size: 1rem;
+    font-size: 1.2rem;
   }
   .form-btn .btn {
     font-size: 0.8rem;

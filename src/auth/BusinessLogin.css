@@ -13,7 +13,8 @@
 
 .form-btn button {
     width: 25vw;
-    color:#0267a2;
+    color:#FFCB05;
+    font-weight: bold;
 }
 
 .reset-links {
@@ -58,8 +59,8 @@
 
 .business-hero {
     width: 100vw;
-    height: 30vh;
-    background: url('../images/business-unsplash.jpg');
+    height: 25vh;
+    background: url('../images/business_login_img.png');
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;

@@ -62,7 +62,7 @@ function BusinessLogin({ toggleBusiness, toggleBusinessReg }) {
           />
         </div>
         <div className="form-btn input-field">
-          <button className="btn yellow darken-1 z-depth-0">Sign In</button>
+          <button className="btn light-blue darken-4 z-depth-0">Sign In</button>
           <div className="reset-links">
             <p onClick={toggleBusiness}>Not a Business?</p>
             <p onClick={toggleBusinessReg}>Register Business</p>

@@ -104,7 +104,7 @@ textarea.materialize-textarea:focus:not([readonly]) {
 .input-field input:not(:focus),
 .input-field select:not(:focus)
  {
-  border-bottom: 1px solid #707070;
+  border-bottom: 1px solid #918f8f;
 }
 
 .input-field label {
