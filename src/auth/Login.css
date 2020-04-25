@@ -119,7 +119,7 @@ textarea.materialize-textarea:focus:not([readonly]) {
   }
 }
 
-@media screen and (max-width: 375px) {
+@media screen and (max-width: 370px) {
   .login-container .nav-wrapper h5 {
     font-size: 1rem;
   }

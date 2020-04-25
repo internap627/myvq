@@ -138,7 +138,7 @@ function BusinessStep1({ toggleUserForm, toggleStep, handleDetails }) {
           />
         </div>
         <div className="input-field">
-          <label htmlFor="password">Confirm Password</label>
+          <label htmlFor="confirmPassword">Confirm Password</label>
           <input
             type="password"
             id="confirmPassword"

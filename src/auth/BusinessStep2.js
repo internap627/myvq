@@ -101,7 +101,7 @@ function BusinessStep2({ toggleForm, toggleStep, details }) {
               used by your customers when scanned to secure their place in line.{" "}
             </p>
           </div>
-          <QRshow data={nameLocation} />
+          <div className="qrcanvas"><QRshow data={nameLocation} /></div>
         </div>
         <p>
           Please ensure the above details are correct by clicking on “CONFIRM”

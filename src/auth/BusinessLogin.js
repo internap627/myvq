@@ -38,7 +38,7 @@ function BusinessLogin({ toggleBusiness, toggleBusinessReg }) {
   return (
     <div className="business-login-container">
       <nav className="nav-wrapper white">
-      <h5 className="center">Welcome to VQ Corporate</h5>
+      <h5 className="center">VQ, your in-line manager</h5>
       </nav>
       <div className="business-hero"></div>
 

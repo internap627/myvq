@@ -45,7 +45,7 @@ function Login({ toggleUserForm, toggleBusiness }) {
   return (
     <div className="login-container">
       <nav className="nav-wrapper white">
-        <h5 className="center">Welcome to VQ your Virtual in line assistant!</h5>
+        <h5 className="center">VQ, your in-line assistant</h5>
       </nav>
       <div className="hero"></div>
 
