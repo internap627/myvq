@@ -2,20 +2,36 @@ import React, { useState, useEffect } from "react";
 import { withRouter } from "react-router";
 import firebase from "../config/fbConfig";
 import QRshow from "./QRshow";
+import { db } from '../config/fbConfig'
 
 function BusinessStep2({ toggleForm, toggleStep, details }) {
   const userDetails = details && details;
   const userName = `${userDetails.firstName} ${userDetails.lastName}`;
   const nameLocation = `${userDetails.businessName}, ${userDetails.street}, ${userDetails.parish}`;
 
+  const createVendor = () => {
+    let doc = {
+      businessName: userDetails.businessName,
+      category: userDetails.category,
+      email: userDetails.email,
+      firstName: userDetails.firstName,
+      lastName: userDetails.lastName,
+      parish: userDetails.parish,
+      street: userDetails.street
+  }
+    db.collection('vendors').add(doc)
+        .then(doc => {
+            window.M.toast({html: `Vendor added`})
+        })
+  }
+
   const handleSubmit = (e) => {
     e.preventDefault();
     firebase
       .auth()
       .createUserWithEmailAndPassword(userDetails.email, userDetails.password)
-      .then((u) => {
-        console.log(u.user.email);
-        // this.props.history.push("/");
+      .then(() => {
+        createVendor()
       })
       .catch((err) => {
         console.log(err.message);

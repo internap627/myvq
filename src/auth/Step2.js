@@ -1,20 +1,30 @@
 import React, { useState, useEffect } from "react";
 import { withRouter } from "react-router";
 import firebase from "../config/fbConfig";
+import { db } from '../config/fbConfig';
 
 function Step2({ toggleForm, toggleStep, details }) {
-
-
   const userDetails = details && details;
+
+  const createUser = () => {
+    let doc = {
+      email: userDetails.email,
+      firstName: userDetails.firstName,
+      lastName: userDetails.lastName
+  }
+    db.collection('users').add(doc)
+        .then(doc => {
+            window.M.toast({html: `User added`})
+        })
+  }
 
   const handleSubmit = (e) => {
     e.preventDefault();
     firebase
       .auth()
       .createUserWithEmailAndPassword(userDetails.email, userDetails.password)
-      .then((u) => {
-        console.log(u.user.email);
-        // this.props.history.push("/");
+      .then(() => {
+        createUser()
       })
       .catch((err) => {
         console.log(err.message);
@@ -33,7 +43,7 @@ function Step2({ toggleForm, toggleStep, details }) {
         <h5>Welcome to the VQ community!</h5>
       </div>
       <div className="form-label">
-        <h5>User / Customer Confirmation</h5>
+        <h5>User Confirmation</h5>
       </div>
       <form className="form" onSubmit={handleSubmit}>
         <div className="input-field">
