@@ -108,6 +108,10 @@ textarea.materialize-textarea:focus:not([readonly]) {
   animation-delay: 0.5s;
 }
 
+.login-container .input-field label {
+  color: #0066A0;
+}
+
 @keyframes HeaderAnimation {
   0% {
     opacity: 0;
