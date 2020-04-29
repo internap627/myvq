@@ -42,7 +42,7 @@ function App() {
 
                 <p>
                   Become a member or register your business{" "}
-                  <Link style={linkStyle} to="/users" onClick={toggleSplash}>
+                  <Link style={linkStyle} onClick={toggleSplash}>
                     here
                   </Link>{". "}
                   Once registered, members can select a business in order to
