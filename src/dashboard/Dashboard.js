@@ -5,6 +5,7 @@ import "./Dashboard.css";
 import { db } from "../config/fbConfig";
 import massypromo from "../images/Massy_promo-01.png";
 import massylogo from "../images/massy_logo_01.png"
+import icons from "../images/icons.js"
 
 export default function Dashboard({ user }) {
   // const name = user && user.firstName;
@@ -54,7 +55,7 @@ export default function Dashboard({ user }) {
         <button data-target="slide-out" className="sidenav-trigger">
           <i className="material-icons">menu</i>
         </button>
-        <h5 onClick={logout} className="center">
+        <h5 className="center">
           Welcome back to VQ
         </h5>
       </nav>
@@ -75,8 +76,8 @@ export default function Dashboard({ user }) {
           </div>
         </li>
         <li>
-          <a href="#!">
-            <i className="material-icons">cloud</i>First Link With Icon
+          <a href="#!" onClick={logout}>
+            <i className="material-icons">exit_to_app</i>Logout
           </a>
         </li>
         <li>
@@ -96,7 +97,7 @@ export default function Dashboard({ user }) {
             </div>
             <div className="collapsible-body">
               <div className="heading">
-                <i className="material-icons">shopping_cart</i>
+                <span><img src={icons[userDetails.category]} alt="icon"/></span>
                 {userDetails.category}
               </div>
               <div className="business-data">

@@ -1,11 +1,13 @@
 .business-dash-container nav {
   position: sticky;
   top: 0;
+  justify-content: start;
 }
 
 .business-dash-container nav h5 {
-  color: white;
+  color: #FFCC04;
   height: 2rem;
+  margin-left: 1rem;
 }
 
 .business-dash-container .user-view {
@@ -35,13 +37,17 @@
   border-bottom: 1px solid #918f8f;
 }
 
+.business-dash-body .heading span {
+    margin-right: 1rem;
+}
+
 .business-data {
-  padding: 1rem 2rem;
+  padding: 1rem 3rem;
   font-weight: bold;
 }
 
 .queue-data {
-  padding: 0 2rem;
+  padding: 0 3rem;
 }
 .queue-data p {
   margin: 0.5rem 0;
