@@ -18,7 +18,8 @@ function BusinessStep2({ toggleForm, toggleStep, details }) {
       lastName: userDetails.lastName,
       parish: userDetails.parish,
       street: userDetails.street,
-      isVendor: true
+      isVendor: true,
+      promotions: []
   }
     db.collection('vendors').add(doc)
         .then(doc => {

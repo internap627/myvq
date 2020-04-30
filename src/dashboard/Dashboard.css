@@ -1,5 +1,25 @@
+.business-dash-container nav {
+  position: sticky;
+  top: 0;
+}
+
 .business-dash-container nav h5 {
   color: white;
+  height: 2rem;
+}
+
+.business-dash-container .user-view {
+  background-color: #45ffff;
+}
+
+.user-view .logo {
+  display: flex;
+  justify-content: center;
+  height: 40%;
+}
+
+.user-view span {
+  color: #0066a0 !important;
 }
 
 .business-qr {
@@ -31,4 +51,13 @@
   display: flex;
   align-items: center;
   justify-content: space-around;
+}
+
+.ad-promo {
+  display: flex;
+  justify-content: center;
+}
+
+.sidenav-overlay {
+  background-color: transparent !important;
 }

@@ -3,6 +3,8 @@ import firebase from "../config/fbConfig";
 import QRshow from "../auth/QRshow";
 import "./Dashboard.css";
 import { db } from "../config/fbConfig";
+import massypromo from "../images/Massy_promo-01.png";
+import massylogo from "../images/massy_logo_01.png"
 
 export default function Dashboard({ user }) {
   // const name = user && user.firstName;
@@ -11,15 +13,22 @@ export default function Dashboard({ user }) {
 
   const [userDetails, setUserDetails] = useState({});
   const nameLocation =
-    userDetails && `${userDetails.businessName}, ${userDetails.street}, ${userDetails.parish}`;
-    const businessName = userDetails && userDetails.businessName
-    const location = userDetails && `${userDetails.street}, ${userDetails.parish}`
+    userDetails &&
+    `${userDetails.businessName}, ${userDetails.street}, ${userDetails.parish}`;
+  const businessName = userDetails && userDetails.businessName;
+  const location =
+    userDetails && `${userDetails.street}, ${userDetails.parish}`;
+  const fullName =
+    userDetails && `${userDetails.firstName} ${userDetails.lastName}`;
 
   useEffect(() => {
     getUser();
 
     let elems = document.querySelectorAll(".collapsible");
     window.M.Collapsible.init(elems);
+
+    let elemsSlide = document.querySelectorAll(".sidenav");
+    window.M.Sidenav.init(elemsSlide);
   }, [user]);
 
   const getUser = () => {
@@ -40,15 +49,40 @@ export default function Dashboard({ user }) {
   };
 
   return (
-    // <div onClick={logout}>
-    //     Welcome to the Dashboard {name}
-    // </div>
     <div className="business-dash-container">
       <nav className="nav-wrapper light-blue darken-4">
+        <button data-target="slide-out" className="sidenav-trigger">
+          <i className="material-icons">menu</i>
+        </button>
         <h5 onClick={logout} className="center">
           Welcome back to VQ
         </h5>
       </nav>
+
+      <ul id="slide-out" className="sidenav">
+        <li>
+          <div className="user-view">
+            <div className="logo">
+              <img src={massylogo} alt="logo"/>
+            </div>
+            {/* <a href="#user"><img class="circle" src="images/yuna.jpg"/></a> */}
+            <a href="#name">
+              <span className="white-text name">{fullName}</span>
+            </a>
+            <a href="#email">
+              <span className="white-text email">{email}</span>
+            </a>
+          </div>
+        </li>
+        <li>
+          <a href="#!">
+            <i className="material-icons">cloud</i>First Link With Icon
+          </a>
+        </li>
+        <li>
+          <div className="divider"></div>
+        </li>
+      </ul>
 
       <div className="business-qr">
         <QRshow data={nameLocation} />
@@ -66,29 +100,17 @@ export default function Dashboard({ user }) {
                 {userDetails.category}
               </div>
               <div className="business-data">
-                <p>
-                    {businessName}
-                </p>
-                <p>
-                    {location}
-                </p>
+                <p>{businessName}</p>
+                <p>{location}</p>
               </div>
               <div className="queue-data">
-                <p>
-                    Last waiting time :
-                </p>
-                <p>
-                    Number of people in line :
-                </p>
-                <p>
-                    Customer being served :
-                </p>
-                <p>
-                    Total number served today:
-                </p>
-                <div className="light-blue darken-4 btn pulse">
-                <i className="material-icons">person</i>
-                #A0897
+                <p>Last waiting time :</p>
+                <p>Number of people in line :</p>
+                <p>Customer being served :</p>
+                <p>Total number served today:</p>
+                <div className="light-blue darken-4 btn">
+                  <i className="material-icons">person</i>
+                  #A0897
                 </div>
               </div>
             </div>
@@ -99,7 +121,31 @@ export default function Dashboard({ user }) {
               <i className="material-icons">arrow_drop_down</i>
             </div>
             <div className="collapsible-body">
-              <span>Lorem ipsum dolor sit amet.</span>
+              <div className="ad-promo">
+                <img src={massypromo} alt="promo" />
+              </div>
+            </div>
+          </li>
+          <li>
+            <div className="collapsible-header">
+              Instructions
+              <i className="material-icons">arrow_drop_down</i>
+            </div>
+            <div className="collapsible-body">
+              <p>
+                To activate your line manger, simply print out a 6” x “6 square
+                sized copy of your above business QR code, and place or adhere
+                it to a prominent location at the entrance of your business.{" "}
+                <br />
+                <br /> If you are unable to print out a copy of your QR code,
+                simply use the above home page QR code for your customers
+                accepting goods, to scan directly. This will confirm they are
+                being served. Once finished the customer will need to “tap out”
+                of line using the VQ ICON on their screen; the next customer in
+                line can then be served. <br />
+                <br /> Thanks for choosing VQ and have a productive and
+                enjoyable day.
+              </p>
             </div>
           </li>
         </ul>
