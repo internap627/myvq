@@ -5,9 +5,9 @@
 }
 
 .business-dash-container nav h5 {
-  color: #FFCC04;
+  color: #ffcc04;
   height: 2rem;
-  margin-left: 1rem;
+  margin-left: 3rem;
 }
 
 .business-dash-container .user-view {
@@ -38,7 +38,7 @@
 }
 
 .business-dash-body .heading span {
-    margin-right: 1rem;
+  margin-right: 1rem;
 }
 
 .business-data {
@@ -66,4 +66,10 @@
 
 .sidenav-overlay {
   background-color: transparent !important;
+}
+
+@media screen and (max-width: 380px) {
+  .business-dash-container nav h5 {
+    margin-left: 1rem;
+  }
 }
