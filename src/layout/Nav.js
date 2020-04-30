@@ -28,7 +28,7 @@ const Nav = () => {
   //   setUser( user )
   // }
   return (
-    <div className="navbar-fixed">
+    <div >
       {user ?
       <Dashboard user={user} /> :
       <SignedOut />}

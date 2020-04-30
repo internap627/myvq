@@ -64,10 +64,6 @@
   justify-content: center;
 }
 
-.sidenav-overlay {
-  background-color: transparent !important;
-}
-
 @media screen and (max-width: 380px) {
   .business-dash-container nav h5 {
     margin-left: 1rem;
