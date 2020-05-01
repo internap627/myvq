@@ -90,14 +90,14 @@ export default function Dashboard({ user }) {
       </div>
       <div className="business-dash-body">
         <ul className="collapsible">
-          <li>
+          <li className="active">
             <div className="collapsible-header">
               Business Info
               <i className="material-icons">arrow_drop_down</i>
             </div>
             <div className="collapsible-body">
               <div className="heading">
-                <span><img src={icons[userDetails.category]} alt="icon"/></span>
+                {userDetails.category && <span><img src={icons[userDetails.category]} alt="icon"/></span>}
                 {userDetails.category}
               </div>
               <div className="business-data">
