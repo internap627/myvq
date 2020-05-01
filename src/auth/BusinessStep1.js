@@ -26,8 +26,12 @@ function BusinessStep1({ toggleUserForm, toggleStep, handleDetails }) {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    if (details.password !== details.confirmPassword) {
-      alert("The passwords don't match");
+    if(!details.email || !details.firstName || !details.lastName || !details.password || !details.category || !details.street || !details.parish || !details.businessName) {
+      window.M.toast({html: `Please complete all fields`})
+      return false; // The form won't submit
+    }
+    else if (details.password !== details.confirmPassword) {
+      window.M.toast({html: `Passwords don't match`})
       return false; // The form won't submit
     }
     toggleStep();
