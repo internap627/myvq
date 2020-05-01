@@ -76,7 +76,7 @@ export default function Dashboard({ user }) {
           </div>
         </li>
         <li>
-          <a href="#!" onClick={logout}>
+          <a href="#!" className="sidenav-close" onClick={logout}>
             <i className="material-icons">exit_to_app</i>Logout
           </a>
         </li>
