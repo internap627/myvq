@@ -14,6 +14,31 @@
   background-color: #45ffff;
 }
 
+.dash-container .user-view {
+  background-color: #FFFDED;
+}
+
+.dash-container nav {
+  position: sticky;
+  top: 0;
+  justify-content: start;
+}
+
+.dash-container nav h5 {
+  color: black;
+  height: 2rem;
+  margin-left: 3rem;
+}
+
+.user-view .avatar {
+  height: 4rem;
+  padding: 0 1rem;
+}
+
+.avatar i {
+  font-size: 4rem;
+}
+
 .user-view .logo {
   display: flex;
   justify-content: center;
@@ -22,6 +47,13 @@
 
 .user-view span {
   color: #0066a0 !important;
+}
+
+.dashboard-hero {
+  display: flex;
+  justify-content: center;
+  background-color: #FFFDED;
+  padding: 3rem 1rem;
 }
 
 .business-qr {

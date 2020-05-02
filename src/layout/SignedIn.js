@@ -1,6 +1,7 @@
 import React, { useEffect, useState, Fragment } from "react";
 import { db } from "../config/fbConfig";
-import BusinessDashboard from "../dashboard/BusinessDashboard"
+import Dashboard from "../dashboard/Dashboard";
+import BusinessDashboard from "../dashboard/BusinessDashboard";
 
 export default function SignedIn({ user }) {
   const [userDetails, setUserDetails] = useState({});
@@ -27,7 +28,7 @@ export default function SignedIn({ user }) {
           }
         });
       });
-      db.collection("users")
+    db.collection("users")
       .get()
       .then((snapshot) => {
         snapshot.docs.forEach((item) => {
@@ -39,10 +40,13 @@ export default function SignedIn({ user }) {
       });
   };
 
-
   return (
-      <Fragment>
-    {userDetails && userDetails.isVendor ? <BusinessDashboard user={user} userDetails={userDetails} /> : ""}
+    <Fragment>
+      {userDetails && userDetails.isVendor ? (
+        <BusinessDashboard user={user} userDetails={userDetails} />
+      ) : (
+        <Dashboard user={user} userDetails={userDetails} />
+      )}
     </Fragment>
   );
 }
