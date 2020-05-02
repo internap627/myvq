@@ -50,7 +50,7 @@ function Login({ toggleUserForm, toggleBusiness }) {
       <div className="hero"></div>
 
       <div className="task-master">
-          <h3>Task Master</h3>
+          <h3>Quick Tutorial</h3>
           <img src={downArrow} alt="down arrow" />
       </div>
 

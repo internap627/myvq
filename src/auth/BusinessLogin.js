@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import { withRouter } from "react-router";
 import firebase from "../config/fbConfig";
 import "./BusinessLogin.css";
+import downArrow from "../images/taskmaster_ico.png"
 
 function BusinessLogin({ toggleBusiness, toggleBusinessReg }) {
   const [details, setDetails] = useState({
@@ -26,8 +27,7 @@ function BusinessLogin({ toggleBusiness, toggleBusinessReg }) {
       .auth()
       .signInWithEmailAndPassword(details.email, details.password)
       .then((u) => {
-        console.log(u.user.email);
-        //   this.props.history.push('/')
+        console.log(u.user);
       })
       .catch((err) => {
         alert("Invalid email/password.");
@@ -41,6 +41,11 @@ function BusinessLogin({ toggleBusiness, toggleBusinessReg }) {
       <h5 className="center">VQ, your in-line manager</h5>
       </nav>
       <div className="business-hero"></div>
+
+      <div className="task-master">
+          <h3>Quick Tutorial</h3>
+          <img src={downArrow} alt="down arrow" />
+      </div>
 
       <form className="business-login-form" onSubmit={handleSubmit}>
         <div className="input-field">
