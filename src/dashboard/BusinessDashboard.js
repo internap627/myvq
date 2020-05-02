@@ -1,18 +1,13 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect } from "react";
 import firebase from "../config/fbConfig";
 import QRshow from "../auth/QRshow";
 import "./Dashboard.css";
-import { db } from "../config/fbConfig";
 import massypromo from "../images/Massy_promo-01.png";
 import massylogo from "../images/massy_logo_01.png"
 import icons from "../images/icons.js"
 
-export default function Dashboard({ user }) {
-  // const name = user && user.firstName;
-
+export default function BusinessDashboard({ user, userDetails }) {
   const email = user && user.email;
-
-  const [userDetails, setUserDetails] = useState({});
   const nameLocation =
     userDetails &&
     `${userDetails.businessName}, ${userDetails.street}, ${userDetails.parish}`;
@@ -23,27 +18,12 @@ export default function Dashboard({ user }) {
     userDetails && `${userDetails.firstName} ${userDetails.lastName}`;
 
   useEffect(() => {
-    getUser();
-
     let elems = document.querySelectorAll(".collapsible");
     window.M.Collapsible.init(elems);
 
     let elemsSlide = document.querySelectorAll(".sidenav");
     window.M.Sidenav.init(elemsSlide);
   }, [user]);
-
-  const getUser = () => {
-    db.collection("vendors")
-      .get()
-      .then((snapshot) => {
-        snapshot.docs.forEach((item) => {
-          const getItemData = item.data();
-          if (getItemData.email === email) {
-            setUserDetails(getItemData);
-          }
-        });
-      });
-  };
 
   const logout = () => {
     firebase.auth().signOut();

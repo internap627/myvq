@@ -3,8 +3,8 @@ import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 import firebase from "../config/fbConfig";
 // import SignedInLinks from './SignedInLinks'
 import SignedOut from "./SignedOut";
-import Dashboard from "../dashboard/Dashboard";
 import "./Nav.css";
+import SignedIn from "./SignedIn";
 
 const Nav = () => {
   useEffect(() => {
@@ -30,7 +30,7 @@ const Nav = () => {
   return (
     <div >
       {user ?
-      <Dashboard user={user} /> :
+      <SignedIn user={user} /> :
       <SignedOut />}
     </div>
   );
