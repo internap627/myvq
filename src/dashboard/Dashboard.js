@@ -52,7 +52,6 @@ export default function Dashboard({ user, userDetails }) {
             .groupBy(x => x.category)
             .map((value, key) => ({category: key, vendors: value}))
             .value();
-            console.log(result)
             setVendors(result)
       });
   };

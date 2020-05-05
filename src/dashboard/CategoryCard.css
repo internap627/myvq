@@ -1,0 +1,33 @@
+.cat-card {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.cat-card .sec1 img {
+    width: 35px;
+    height: 35px;
+}
+
+.cat-card .sec2 h6 {
+    font-weight: bold;
+}
+
+.cat-card .sec3 h6 {
+    color: #837F7F;
+}
+
+.cat-card .sec3 div {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 5.5rem;
+    height: 2.5rem;
+    background-color: #6594FD;
+    color: white;
+    font-weight: bold;
+    border-radius: 2rem;
+}
+
+
+
