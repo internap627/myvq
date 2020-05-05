@@ -24,11 +24,16 @@ export default function Dashboard({ user, userDetails }) {
       fetchGroups();
     }, 2000);
 
-    let elems = document.querySelectorAll(".collapsible");
-    window.M.Collapsible.init(elems);
 
-    let elemsSlide = document.querySelectorAll(".sidenav");
-    window.M.Sidenav.init(elemsSlide);
+
+    setTimeout(function(){ 
+      let elems = document.querySelectorAll(".collapsible");
+      window.M.Collapsible.init(elems);
+  
+      let elemsSlide = document.querySelectorAll(".sidenav");
+      window.M.Sidenav.init(elemsSlide);
+    }, 3000);
+
   }, [user]);
 
   const fetchGroups = () => {
@@ -95,14 +100,10 @@ export default function Dashboard({ user, userDetails }) {
       </div>
       <div className="business-dash-body">
         <ul className="collapsible">
-          <li>
-            {/* <li className="active"> */}
-            <div className="collapsible-header">
-              Business Categories
-              <i className="material-icons">arrow_drop_down</i>
-            </div>
+          
+            
             {categoryList}
-          </li>
+          
           <li>
             <div className="collapsible-header">
               Instructions

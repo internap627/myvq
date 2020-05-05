@@ -12,7 +12,7 @@ export default function Category({ data, vendorList }) {
             {data[0]}
           </div>
           <div className="collapsible-body">
-            {vendorList && vendorList.vendors.map((v) => <span>{v.businessName}</span>)}
+            {vendorList && vendorList.vendors.map((v) => <span key={v.businessName}>{v.businessName}</span>)}
           </div>
         </li>
       </ul>
