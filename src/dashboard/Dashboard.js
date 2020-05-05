@@ -1,23 +1,56 @@
-import React, { useEffect } from "react";
+import React, { useState, useEffect } from "react";
 import firebase from "../config/fbConfig";
-import QRshow from "../auth/QRshow";
 import "./Dashboard.css";
 import massypromo from "../images/Massy_promo-01.png";
-import massylogo from "../images/massy_logo_01.png";
 import icons from "../images/icons.js";
+import Category from "./Category";
+import _ from "lodash";
 
 export default function Dashboard({ user, userDetails }) {
+  const [vendors, setVendors] = useState([]);
+
   const email = user && user.email;
   const fullName =
     userDetails && `${userDetails.firstName} ${userDetails.lastName}`;
+  const categoryList = Object.entries(icons).map((arr) => {
+    const vendorList = vendors && vendors.find(v => v.category === arr[0])
+    if (vendorList && vendorList.vendors.length > 0) {
+    return <Category data={arr} key={arr[0]} vendorList={vendorList} />;
+  }
+  });
 
   useEffect(() => {
+    setTimeout(function () {
+      fetchGroups();
+    }, 2000);
+
     let elems = document.querySelectorAll(".collapsible");
     window.M.Collapsible.init(elems);
 
     let elemsSlide = document.querySelectorAll(".sidenav");
     window.M.Sidenav.init(elemsSlide);
   }, [user]);
+
+  const fetchGroups = () => {
+    firebase
+      .firestore()
+      .collection("vendors")
+      .get()
+      .then((snapshot) => {
+        let data = [];
+        snapshot.docs.forEach((item) => {
+          const getItemData = item.data();
+
+          data.push(getItemData);
+        });
+        let result = _(data)
+            .groupBy(x => x.category)
+            .map((value, key) => ({category: key, vendors: value}))
+            .value();
+            console.log(result)
+            setVendors(result)
+      });
+  };
 
   const logout = () => {
     firebase.auth().signOut();
@@ -36,7 +69,7 @@ export default function Dashboard({ user, userDetails }) {
         <li>
           <div className="user-view z-depth-2">
             <div className="avatar">
-            <i className="material-icons">person</i>
+              <i className="material-icons">person</i>
             </div>
             {/* <a href="#user"><img class="circle" src="images/yuna.jpg"/></a> */}
             <a href="#name">
@@ -58,21 +91,17 @@ export default function Dashboard({ user, userDetails }) {
       </ul>
 
       <div className="dashboard-hero">
-        <img src={massypromo} alt="logo"/>
+        <img src={massypromo} alt="logo" />
       </div>
       <div className="business-dash-body">
         <ul className="collapsible">
           <li>
-          {/* <li className="active"> */}
+            {/* <li className="active"> */}
             <div className="collapsible-header">
               Business Categories
               <i className="material-icons">arrow_drop_down</i>
             </div>
-            <div className="collapsible-body">
-              <div className="heading">
-                
-              </div>
-            </div>
+            {categoryList}
           </li>
           <li>
             <div className="collapsible-header">
