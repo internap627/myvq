@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
 import { withRouter } from "react-router";
 import firebase from "../config/fbConfig";
 import { db } from '../config/fbConfig';
@@ -10,7 +10,8 @@ function Step2({ toggleForm, toggleStep, details }) {
     let doc = {
       email: userDetails.email,
       firstName: userDetails.firstName,
-      lastName: userDetails.lastName
+      lastName: userDetails.lastName,
+      queues: {}
   }
     db.collection('users').add(doc)
         .then(doc => {

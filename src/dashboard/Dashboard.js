@@ -15,7 +15,7 @@ export default function Dashboard({ user, userDetails }) {
   const categoryList = Object.entries(icons).map((arr) => {
     const vendorList = vendors && vendors.find(v => v.category === arr[0])
     if (vendorList && vendorList.vendors.length > 0) {
-    return <Category data={arr} key={arr[0]} vendorList={vendorList} />;
+    return <Category data={arr} key={arr[0]} vendorList={vendorList} user={userDetails} />;
   }
   });
 
@@ -46,7 +46,7 @@ export default function Dashboard({ user, userDetails }) {
         snapshot.docs.forEach((item) => {
           const getItemData = item.data();
 
-          data.push(getItemData);
+          data.push({...getItemData, id: item.id});
         });
         let result = _(data)
             .groupBy(x => x.category)

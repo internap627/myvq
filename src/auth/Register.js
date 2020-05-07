@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import { withRouter } from "react-router";
 import Step1 from "./Step1";
 import Step2 from "./Step2";

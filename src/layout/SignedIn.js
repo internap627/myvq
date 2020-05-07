@@ -18,26 +18,22 @@ export default function SignedIn({ user }) {
   }, [user]);
 
   const getUser = () => {
-    db.collection("vendors")
-      .get()
-      .then((snapshot) => {
-        snapshot.docs.forEach((item) => {
-          const getItemData = item.data();
-          if (getItemData.email === email) {
-            setUserDetails(getItemData);
-          }
-        });
+    db.collection('vendors').onSnapshot(snapshot => {
+      let changes = snapshot.docChanges();
+      changes.forEach(doc => {
+        if (doc.doc.data().email === email) {
+                  setUserDetails({...doc.doc.data(), id: doc.doc.id});
+                }
       });
-    db.collection("users")
-      .get()
-      .then((snapshot) => {
-        snapshot.docs.forEach((item) => {
-          const getItemData = item.data();
-          if (getItemData.email === email) {
-            setUserDetails(getItemData);
-          }
-        });
+    });
+    db.collection('users').onSnapshot(snapshot => {
+      let changes = snapshot.docChanges();
+      changes.forEach(doc => {
+        if (doc.doc.data().email === email) {
+                  setUserDetails({...doc.doc.data(), id: doc.doc.id});
+                }
       });
+    });
   };
 
   return (
