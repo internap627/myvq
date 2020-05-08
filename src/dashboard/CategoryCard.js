@@ -3,31 +3,31 @@ import icons from "../images/icons";
 import "./CategoryCard.css";
 import firebase from "../config/fbConfig";
 
-export default function CategoryCard({ vendor, user }) {
-  const [buttonStyle, setButtonStyle] = useState({});
+export default function CategoryCard({ vendor, user, handleTicket }) {
+//   const [buttonStyle, setButtonStyle] = useState({});
 
   useEffect(() => {
-    checkQueue();
+    // checkQueue();
     setTimeout(function () {
       let elems = document.querySelectorAll(".modal");
       window.M.Modal.init(elems);
     }, 2000);
-  }, [user]);
+  }, []);
 
-  const checkQueue = () => {
-    const found = user.queues.find((v) => v.id === vendor.id);
-    if (found) {
-      setButtonStyle({
-        backgroundColor: "grey",
-        color: "white",
-      });
-    } else {
-      setButtonStyle({
-        backgroundColor: "#6594FD",
-        color: "white",
-      });
-    }
-  };
+//   const checkQueue = () => {
+//     const found = user.queues.find((v) => v.id === vendor.id);
+//     if (found) {
+//       setButtonStyle({
+//         backgroundColor: "grey",
+//         color: "white",
+//       });
+//     } else {
+//       setButtonStyle({
+//         backgroundColor: "#6594FD",
+//         color: "white",
+//       });
+//     }
+//   };
 
   const lineUp = () => {
     const found = user.queues.find((v) => v.id === vendor.id);
@@ -45,7 +45,6 @@ export default function CategoryCard({ vendor, user }) {
           console.log("Document successfully updated!");
         })
         .catch(function (error) {
-          // The document probably doesn't exist.
           console.error("Error updating document: ", error);
         });
     }
@@ -64,15 +63,16 @@ export default function CategoryCard({ vendor, user }) {
       <div className="sec3">
         <h6>WT:</h6>
         <div
-          style={buttonStyle}
-          data-target={vendor.id}
-          className="modal-trigger z-depth-2"
+        //   style={buttonStyle}
+        //   data-target={vendor.id}
+          className="z-depth-2 waves-effect"
+          onClick={() => handleTicket(vendor)}
         >
-          Line Up
+          Ticket
         </div>
       </div>
 
-      <div id={vendor.id} className="modal">
+      {/* <div id={vendor.id} className="modal">
         <div className="modal-content">
           <h5>Do you want to get in line?</h5>
         </div>
@@ -92,7 +92,7 @@ export default function CategoryCard({ vendor, user }) {
             Confirm
           </a>
         </div>
-      </div>
+      </div> */}
     </div>
   );
 }

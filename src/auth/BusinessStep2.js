@@ -19,7 +19,8 @@ function BusinessStep2({ toggleForm, toggleStep, details }) {
       parish: userDetails.parish,
       street: userDetails.street,
       isVendor: true,
-      promotions: []
+      promotions: [],
+      queue: []
   }
     db.collection('vendors').add(doc)
         .then(doc => {

@@ -1,7 +1,7 @@
 import React from "react";
 import CategoryCard from "./CategoryCard";
 
-export default function Category({ data, vendorList, user }) {
+export default function Category({ data, vendorList, user, handleTicket }) {
   return (
     <div>
       <ul className="collapsible">
@@ -13,7 +13,7 @@ export default function Category({ data, vendorList, user }) {
             {data[0]}
           </div>
           <div className="collapsible-body">
-            {vendorList && vendorList.vendors.map((v) => <CategoryCard key={v.businessName} vendor={v} user={user} />)}
+            {vendorList && vendorList.vendors.map((v) => <CategoryCard key={v.businessName} vendor={v} user={user} handleTicket={handleTicket} />)}
           </div>
         </li>
       </ul>
