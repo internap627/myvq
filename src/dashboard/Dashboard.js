@@ -81,7 +81,7 @@ export default function Dashboard({ user, userDetails }) {
       <div className="dash-container">
         <nav className="nav-wrapper amber accent-3">
           <button data-target="slide-out" className="sidenav-trigger">
-            <i className="material-icons">menu</i>
+            <i className="material-icons">apps</i>
           </button>
           <h5 className="center">Welcome back to VQ</h5>
         </nav>
