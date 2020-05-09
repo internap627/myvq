@@ -1,5 +1,5 @@
-import React, { useState, useEffect } from "react";
-import { withRouter } from "react-router";
+import React, { useState } from "react";
+// import { withRouter } from "react-router";
 import firebase from "../config/fbConfig";
 import "./Login.css";
 

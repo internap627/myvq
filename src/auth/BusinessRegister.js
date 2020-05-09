@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import { withRouter } from "react-router";
 import BusinessStep1 from "./BusinessStep1";
 import BusinessStep2 from "./BusinessStep2";

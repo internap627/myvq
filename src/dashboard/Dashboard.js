@@ -49,7 +49,7 @@ export default function Dashboard({ user, userDetails }) {
 
       let elemsSlide = document.querySelectorAll(".sidenav");
       window.M.Sidenav.init(elemsSlide);
-    }, 3000);
+    }, 2000);
   }, [vendor]);
 
   const fetchGroups = () => {

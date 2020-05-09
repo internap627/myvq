@@ -7,16 +7,6 @@ export default function SignedIn({ user }) {
   const [userDetails, setUserDetails] = useState({});
   const email = user && user.email;
 
-  useEffect(() => {
-    getUser();
-
-    let elems = document.querySelectorAll(".collapsible");
-    window.M.Collapsible.init(elems);
-
-    let elemsSlide = document.querySelectorAll(".sidenav");
-    window.M.Sidenav.init(elemsSlide);
-  }, [user]);
-
   const getUser = () => {
     db.collection('vendors').onSnapshot(snapshot => {
       let changes = snapshot.docChanges();
@@ -35,6 +25,22 @@ export default function SignedIn({ user }) {
       });
     });
   };
+
+  useEffect(() => {
+    getUser();
+  })
+
+  useEffect(() => {
+    
+
+    let elems = document.querySelectorAll(".collapsible");
+    window.M.Collapsible.init(elems);
+
+    let elemsSlide = document.querySelectorAll(".sidenav");
+    window.M.Sidenav.init(elemsSlide);
+  }, [user]);
+
+
 
   return (
     <Fragment>

@@ -7,6 +7,7 @@
 .cat-card .sec1 img {
     width: 35px;
     height: 35px;
+    margin-right: 0.5rem;
 }
 
 .cat-card .sec2 h6 {
@@ -21,12 +22,14 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    width: 5.5rem;
-    height: 2.5rem;
-    background-color: #6594FD;
-    color: white;
+    width: 6.5rem;
+    height: 2.75rem;
+    /* background-color: #6594FD; */
+    /* color: white; */
     font-weight: bold;
-    border-radius: 2rem;
+    font-size: 1.25rem;
+    border-radius: 1rem;
+    margin-left: 0.5rem;
 }
 
 
