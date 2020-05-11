@@ -80,9 +80,7 @@ export default function Dashboard({ user, userDetails }) {
     <Fragment>
       <div className="dash-container">
         <nav className="nav-wrapper amber accent-3">
-          {/* <button data-target="slide-out" className="sidenav-trigger"> */}
             <i data-target="slide-out" className="material-icons sidenav-trigger">menu</i>
-          {/* </button> */}
           <h5 className="center">Welcome back to VQ</h5>
         </nav>
 

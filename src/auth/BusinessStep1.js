@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { withRouter } from "react-router";
 
 function BusinessStep1({ toggleUserForm, toggleStep, handleDetails }) {
@@ -12,8 +12,23 @@ function BusinessStep1({ toggleUserForm, toggleStep, handleDetails }) {
     businessName: "",
     street: "",
     parish: "",
+    openingTime: "",
     user: {},
   });
+
+  useEffect(() => {
+    setTimeout(function () {
+      let elems = document.querySelectorAll('.timepicker');
+      window.M.Timepicker.init(elems, {onSelect: (a,b) => {
+        console.log(a, b)
+        let val = { openingTime: `${a}:${b}` };
+        setDetails({
+          ...details,
+          ...val,
+        });
+      }});
+    }, 1000);
+  })
 
   const handleChange = (e) => {
     let val = { [e.target.id]: e.target.value };
@@ -103,6 +118,10 @@ function BusinessStep1({ toggleUserForm, toggleStep, handleDetails }) {
             value={details.businessName}
             onChange={handleChange}
           />
+        </div>
+        <div className="input-field"> 
+        <label htmlFor="openingTime">Opening Time</label>
+        <input id="openingTime" value={details.openingTime} type="text" className="timepicker" onChange={() => console.log("time changed")}/>
         </div>
         <div className="input-field">
           <label htmlFor="street">Street</label>

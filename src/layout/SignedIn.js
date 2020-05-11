@@ -38,7 +38,7 @@ export default function SignedIn({ user }) {
 
     let elemsSlide = document.querySelectorAll(".sidenav");
     window.M.Sidenav.init(elemsSlide);
-  }, [user]);
+  }, []);
 
 
 
