@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { withRouter } from "react-router";
+import moment from "moment"
 
 function BusinessStep1({ toggleUserForm, toggleStep, handleDetails }) {
   const [details, setDetails] = useState({
@@ -13,31 +14,37 @@ function BusinessStep1({ toggleUserForm, toggleStep, handleDetails }) {
     street: "",
     parish: "",
     openingTime: "",
+    maxActive: "",
     user: {},
   });
+
+  const handleChange = (e) => {
+    console.log(e.target)
+    let val = { [e.target.id]: e.target.value };
+    console.log(details)
+    setDetails({
+      ...details,
+      ...val,
+    });
+  };
 
   useEffect(() => {
     setTimeout(function () {
       let elems = document.querySelectorAll('.timepicker');
-      window.M.Timepicker.init(elems, {onSelect: (a,b) => {
-        console.log(a, b)
-        let val = { openingTime: `${a}:${b}` };
+      window.M.Timepicker.init(elems, {onSelect: (h, m) => {
+        const input = `${h}:${m}`
+        const val = {
+          openingTime: moment(input,'HH:mm').format('HH:mm')
+        }
         setDetails({
           ...details,
           ...val,
         });
       }});
     }, 1000);
-  })
+  }, [])
 
-  const handleChange = (e) => {
-    let val = { [e.target.id]: e.target.value };
 
-    setDetails({
-      ...details,
-      ...val,
-    });
-  };
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -121,7 +128,16 @@ function BusinessStep1({ toggleUserForm, toggleStep, handleDetails }) {
         </div>
         <div className="input-field"> 
         <label htmlFor="openingTime">Opening Time</label>
-        <input id="openingTime" value={details.openingTime} type="text" className="timepicker" onChange={() => console.log("time changed")}/>
+        <input id="openingTime" value={details.openingTime} type="text" className="timepicker" onChange={handleChange}/>
+        </div>
+        <div className="input-field">
+          <label htmlFor="maxActive">Maximun Active Customers</label>
+          <input
+            type="text"
+            id="maxActive"
+            value={details.maxActive}
+            onChange={handleChange}
+          />
         </div>
         <div className="input-field">
           <label htmlFor="street">Street</label>
