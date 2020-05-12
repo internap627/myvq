@@ -1,6 +1,5 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useCallback } from "react";
 import { withRouter } from "react-router";
-import moment from "moment"
 
 function BusinessStep1({ toggleUserForm, toggleStep, handleDetails }) {
   const [details, setDetails] = useState({
@@ -18,31 +17,15 @@ function BusinessStep1({ toggleUserForm, toggleStep, handleDetails }) {
     user: {},
   });
 
-  const handleChange = (e) => {
-    console.log(e.target)
+  const handleChange =
+    useCallback((e) => {
+      console.log(e.target.value)
     let val = { [e.target.id]: e.target.value };
-    console.log(details)
     setDetails({
       ...details,
       ...val,
     });
-  };
-
-  useEffect(() => {
-    setTimeout(function () {
-      let elems = document.querySelectorAll('.timepicker');
-      window.M.Timepicker.init(elems, {onSelect: (h, m) => {
-        const input = `${h}:${m}`
-        const val = {
-          openingTime: moment(input,'HH:mm').format('HH:mm')
-        }
-        setDetails({
-          ...details,
-          ...val,
-        });
-      }});
-    }, 1000);
-  }, [])
+    }, [details])
 
 
 
@@ -127,8 +110,15 @@ function BusinessStep1({ toggleUserForm, toggleStep, handleDetails }) {
           />
         </div>
         <div className="input-field"> 
-        <label htmlFor="openingTime">Opening Time</label>
-        <input id="openingTime" value={details.openingTime} type="text" className="timepicker" onChange={handleChange}/>
+        <select onChange={handleChange} defaultValue="label" id="openingTime">
+            <option value="label" disabled>
+              Opening Time
+            </option>
+            <option value="8:00 AM">8:00 AM</option>
+            <option value="9:00 AM">9:00 AM</option>
+            <option value="10:00 AM">10:00 AM</option>
+            <option value="11:00 AM">11:00 AM</option>
+          </select>
         </div>
         <div className="input-field">
           <label htmlFor="maxActive">Maximun Active Customers</label>
