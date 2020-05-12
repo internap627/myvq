@@ -18,6 +18,8 @@ function BusinessStep2({ toggleForm, toggleStep, details }) {
       lastName: userDetails.lastName,
       parish: userDetails.parish,
       street: userDetails.street,
+      openingTime: userDetails.openingTime,
+      maxActive: userDetails.maxActive,
       isVendor: true,
       promotions: [],
       queue: [],
