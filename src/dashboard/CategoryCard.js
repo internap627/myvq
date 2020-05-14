@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import icons from "../images/icons";
 import "./CategoryCard.css";
+import moment from "moment"
 
 export default function CategoryCard({ vendor, user, handleTicket }) {
   function padDigits(number, digits) {
@@ -9,6 +10,12 @@ export default function CategoryCard({ vendor, user, handleTicket }) {
       Array(Math.max(digits - String(number).length + 1, 0)).join(0) +
       number
     );
+  }
+
+  const ticketOpen = new Date().getHours() >= new Date(0 , 0, 0, vendor && vendor.openingTime - 2, 0, 0, 0).getHours() 
+  const buttonClosedStyle = {
+    backgroundColor: "grey",
+    color: "white",
   }
 
   const newTicket = vendor && padDigits(vendor.queue.length + 1, 4);
@@ -58,14 +65,19 @@ export default function CategoryCard({ vendor, user, handleTicket }) {
         ) : (
           <p>NEXT UP: {newTicket}</p>
         )}
-        <div
+        {!ticketOpen ?<div
+          style={buttonClosedStyle}
+          className="z-depth-2 disabled"
+        >
+          Ticket
+        </div> : <div
           style={buttonStyle}
           data-target={vendor.id}
           className="z-depth-2 waves-effect"
           onClick={() => handleTicket(vendor)}
         >
           Ticket
-        </div>
+        </div>}
       </div>
     </div>
   );
