@@ -33,12 +33,6 @@ export default function Ticket({ vendor, user, handleTicket }) {
   
 
   useEffect(() => {
-    setInterval(() => {
-      setTimeLeft(calculateTimeLeft());
-    }, 1000);
-  });
-
-  useEffect(() => {
     setTimeout(function () {
       let elems = document.querySelectorAll(".modal");
       window.M.Modal.init(elems);
@@ -47,9 +41,10 @@ export default function Ticket({ vendor, user, handleTicket }) {
 
   useEffect(() => {
     const checkQueue = () => {
-      const found = user.queues.find((v) => v.id === vendor.id);
+      const found = user && user.queues.find((v) => v.id === vendor.id);
       if (found) {
         setTicketData(found.ticketNumber);
+        setTimeLeft(found.timeLeft)
       } else {
         setTicketData("");
       }
