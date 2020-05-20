@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from "react";
 import icons from "../images/icons";
 import "./CategoryCard.css";
-import moment from "moment"
 
 export default function CategoryCard({ vendor, user, handleTicket }) {
   function padDigits(number, digits) {
@@ -25,7 +24,7 @@ export default function CategoryCard({ vendor, user, handleTicket }) {
 
   useEffect(() => {
     const checkQueue = () => {
-      const found = user.queues.find((v) => v.id === vendor.id);
+      const found = user && user.queues.find((v) => v.id === vendor.id);
       if (found) {
         setButtonStyle({
           backgroundColor: "#6594FD",
@@ -78,6 +77,7 @@ export default function CategoryCard({ vendor, user, handleTicket }) {
         >
           Ticket
         </div>}
+        
       </div>
     </div>
   );

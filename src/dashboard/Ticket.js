@@ -4,17 +4,39 @@ import massypromo2 from "../images/massypromo2.png";
 import "./Ticket.css";
 
 export default function Ticket({ vendor, user, handleTicket }) {
-  function padDigits(number, digits) {
+  function padDigits(number, digits, str) {
     return (
-      "#" +
+      str +
       Array(Math.max(digits - String(number).length + 1, 0)).join(0) +
       number
     );
   }
+  const calculateTimeLeft = () => {
+    const newTime = new Date(0, 0, 0, vendor && vendor.openingTime, 5, vendor && vendor.queue.length + 1 * 20, 0)
 
-  const newTicket = vendor && padDigits(vendor.queue.length + 1, 4);
-  const totalTickets = vendor && padDigits(vendor.queue.length, 4);
+    let timeLeft = {};
+
+      timeLeft = {
+        hours: padDigits(newTime.getHours(), 2, ""),
+        minutes: padDigits(newTime.getMinutes(), 2, ""),
+        seconds: padDigits(newTime.getSeconds(), 2, "")
+      };
+    
+
+    return timeLeft;
+  };
+
+  const newTicket = vendor && padDigits(vendor.queue.length + 1, 4, "#");
+  const totalTickets = vendor && padDigits(vendor.queue.length, 4, "#");
   const [ticketData, setTicketData] = useState("");
+  const [timeLeft, setTimeLeft] = useState(calculateTimeLeft());
+  
+
+  useEffect(() => {
+    setInterval(() => {
+      setTimeLeft(calculateTimeLeft());
+    }, 1000);
+  });
 
   useEffect(() => {
     setTimeout(function () {
@@ -41,6 +63,7 @@ export default function Ticket({ vendor, user, handleTicket }) {
     if (found) {
       window.M.toast({ html: `You are already in this queue.` });
     } else {
+      setTimeLeft()
       const userRef = firebase.firestore().collection("users").doc(user.id);
       const vendorRef = firebase
         .firestore()
@@ -49,12 +72,12 @@ export default function Ticket({ vendor, user, handleTicket }) {
 
       return userRef
         .update({
-          queues: [...user.queues, { ...vendor, ticketNumber: newTicket }],
+          queues: [...user.queues, { ...vendor, ticketNumber: newTicket, timeLeft: timeLeft }],
         })
         .then(function () {
           vendorRef
             .update({
-              queue: [...vendor.queue, { ...user, ticketNumber: newTicket }],
+              queue: [...vendor.queue, { ...user, ticketNumber: newTicket, timeLeft: timeLeft }],
             })
             .then(() => {
               console.log("Added to both queues");
@@ -102,8 +125,8 @@ export default function Ticket({ vendor, user, handleTicket }) {
           <h3>{totalTickets}</h3>
         </div>
         <div className="sec3">
-          <h4>EXPECTED WAIT TIME :</h4>
-          <h3>01 : 20 : 08</h3>
+          <h4>ENTRY TIME :</h4>
+          {ticketData ? <h3>{`${timeLeft.hours} : ${timeLeft.minutes} : ${timeLeft.seconds}`}</h3> : <h3>00 : 00 : 00</h3>}
         </div>
       </div>
 
