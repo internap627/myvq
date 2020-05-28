@@ -53,7 +53,7 @@ export default function Ticket({ vendor, user, handleTicket }) {
   });
 
   const lineUp = () => {
-    const found = user.queues.find((v) => v.id === vendor.id);
+    const found = user && user.queues.find((v) => v.id === vendor.id);
 
     if (found) {
       window.M.toast({ html: `You are already in this queue.` });
