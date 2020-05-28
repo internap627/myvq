@@ -11,7 +11,7 @@ function Step2({ toggleForm, toggleStep, details }) {
       email: userDetails.email,
       firstName: userDetails.firstName,
       lastName: userDetails.lastName,
-      queues: {}
+      queues: []
   }
     db.collection('users').add(doc)
         .then(doc => {
